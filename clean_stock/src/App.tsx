@@ -12,7 +12,10 @@ function App() {
               <span className='anton-regular title-2'>STOCK</span>
             </div>
             <p className='presentation'>
-              CleanStock es una aplicación innovadora diseñada para optimizar la gestión de inventarios en las organizaciones. Nuestra app facilita el análisis y la administración eficiente de productos, proporcionando a nuestros clientes una visión integral y estratégica de sus inventarios. Inicialmente, CleanStock estará disponible como una aplicación web que require conexión a internet. Sin embargo, nuestro objectivo a largo plazo es desarrollar una version movil que permita a los usuarios gestionar sus inventarios de manera efectiva, incluso sin conexión a internet.
+              CleanStock es una aplicación innovadora diseñada para optimizar la gestión de inventarios
+              en las organizaciones. Nuestra app facilita el análisis y la administración eficiente de
+              productos, proporcionando a nuestros clientes una visión integral y estratégica de sus
+              inventarios.
             </p>
           </div>
           <div className='card card-form'>
