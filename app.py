@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")  # 👈 Usa la variable desde .env
+app.secret_key = os.environ.get("SECRET_KEY", "fallback-key")  # 👈 Usa la variable desde .env
 
 # Configuración Supabase desde variables de entorno
 SUPABASE_URL = os.getenv("SUPABASE_URL")
