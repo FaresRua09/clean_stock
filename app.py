@@ -78,6 +78,8 @@ def logout():
 
 @app.route('/')
 def inicio():
+    if 'user' not in session:
+        return redirect(url_for('login'))
     return render_template('inicio.html')
 
 @app.route('/stock')
