@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stock</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stock.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Sidebar (opcional, si tienes) -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" />
+                <h2>Clean Stock</h2>
+            </div>
+            <div class="nav-buttons">
+                <button onclick="location.href='{{ url_for('inicio') }}'">Inicio</button>
+                <a href="{{ url_for('stock') }}">
+                    <button type="button">Stock</button>
+                </a>
+                <a href="{{ url_for('lista_conteo') }}">
+                    <button type="button">Lista de conteo</button>
+                </a>
+                <a href="{{ url_for('fuera_base') }}">
+                    <button type="button">Fuera de Base</button>
+                </a>
+                <a href="{{ url_for('cargue_db') }}">
+                    <button type="button">Cargue DB</button>
+                </a>
+                <a href="{{ url_for('administracion_usuarios') }}">
+                    <button type="button">Administración Usuarios</button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <h1 class="page-title">Stock</h1>
+
+            <!-- Formulario de filtro -->
+            <form method="GET" action="{{ url_for('stock') }}">
+                <input
+                    type="text"
+                    name="filtro"
+                    placeholder="Buscar referencia, marca o bodega"
+                    value="{{ request.args.get('filtro', '') }}"
+                />
+                <button type="submit">Filtrar</button>
+                <a href="{{ url_for('descargar_csv', filtro=request.args.get('filtro', '')) }}">
+                    <button type="button">📥 Descargar CSV</button>
+                </a>                
+            </form>
+
+            <!-- Tabla con los datos -->
+            <div class="tabla-conteo">
+                <table id="tabla-conteo">
+                    <thead>
+                        <tr>
+                            <th>Referencia</th>
+                            <th>Descripción</th>
+                            <th>Marca</th>
+                            <th>Bodega</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Unidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if datos_stock %}
+                            {% for item in datos_stock %}
+                                <tr>
+                                    <td>{{ item.referencia }}</td>
+                                    <td>{{ item.descripcion }}</td>
+                                    <td>{{ item.marca }}</td>
+                                    <td>{{ item.nombre_bodega }}</td>
+                                    <td>{{ item.cantidad_stock }}</td>
+                                    <td>{{ item.precio }}</td>
+                                    <td>{{ item.umb }}</td>                                    
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="7" style="text-align: center;">No se encontraron registros.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

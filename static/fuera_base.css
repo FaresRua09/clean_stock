@@ -1,0 +1,170 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    background-color: #f2f4f7;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Estilo para el título de la página */
+.page-title {
+    font-size: 2.5rem;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;  /* Espacio dentro del recuadro */
+    background-color: #CDD4DC;  /* Gris claro */
+    border: 2px solid #191919;  /* Recuadro con borde gris */
+    border-radius: 8px;  /* Bordes redondeados (opcional) */
+    margin: 20px auto;  /* Espaciado superior/inferior y centrado horizontal */
+    width: 80%;  /* Ajustar el ancho del recuadro */
+    max-width: 500px;  /* Establecer un ancho máximo, si es necesario */
+    display: block;
+    
+}
+
+/* Estilo del panel lateral */
+.sidebar {
+    background-color: #cccccc;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.logo h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.nav-buttons button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-buttons button:hover {
+    background-color: #d5d5d5;
+}
+
+/* Estilo del contenido principal */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    gap: 20px; /* Espacio entre elementos */
+}
+
+.back-button {
+    align-self: flex-start;
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background-color: #d5d5d5;
+}
+
+.tabla-conteo {
+    margin-top: 40px; /* Incrementa este valor para separar más la tabla */
+    width: 100%;
+    overflow-x: auto; /* Habilita el desplazamiento horizontal si el contenido es demasiado ancho */
+}
+
+#tabla-conteo {
+    width: 100%; /* La tabla ocupará todo el ancho del contenedor */
+    border-collapse: collapse; /* Asegura que las celdas no tengan espacios entre ellas */
+    border: 1px solid #ccc; /* Borde opcional */
+}
+
+#tabla-conteo th, #tabla-conteo td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd; /* Borde interno */
+}
+
+#tabla-conteo th {
+    background-color: #f2f4f7; /* Color del encabezado */
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px; /* Espacio adicional debajo de la tabla */
+}
+
+.action-buttons button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.action-buttons button:hover {
+    background-color: #45a049;
+}
+
+.back-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.back-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}

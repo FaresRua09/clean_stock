@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuera de Base - Cleanstock</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='administracion_usuarios.css') }}"> <!-- Reutilizar estilos -->
+</head>
+<body>
+    <div class="container">
+        <!-- Panel lateral -->
+        <aside class="sidebar">
+            <div class="logo">
+                <a href="{{ url_for('inicio') }}">
+                    <img src="{{ url_for('static', filename='logo.png') }}" alt="Cleanstock Logo" style="cursor: pointer;">
+                </a>
+                <h2>CLEANSTOCK</h2>
+            </div>            
+            <nav class="nav-buttons">
+                <a href="{{ url_for('stock') }}">
+                    <button type="button">Stock</button>
+                </a>
+                <a href="{{ url_for('lista_conteo') }}">
+                    <button type="button">Lista de conteo</button>
+                </a>
+                <a href="{{ url_for('fuera_base') }}">
+                    <button type="button">Fuera de Base</button>
+                </a>
+                <a href="{{ url_for('cargue_db') }}">
+                    <button type="button">Cargue DB</button>
+                </a>
+                <a href="{{ url_for('administracion_usuarios') }}">
+                    <button type="button">Administración Usuarios</button>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <div class="back-container">
+                {% if request.path == '/' %}
+                    <form method="POST" action="{{ url_for('logout') }}">
+                        <button class="back-button">🔒 Salir</button>
+                    </form>
+                {% else %}
+                    <button onclick="window.history.back()" class="back-button">⬅️ Atrás</button>
+                {% endif %}
+            </div>            
+            <h1 class="page-title">Fuera de Base</h1>
+            <!-- Aquí puedes agregar el contenido específico para los elementos fuera de base -->
+        </main>
+    </div>
+</body>
+</html>

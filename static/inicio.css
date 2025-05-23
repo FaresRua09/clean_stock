@@ -1,0 +1,137 @@
+/* Estilos generales del sitio */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f2f4f7;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    width: 100%;
+    position: relative; /* Necesario para posicionar el botón "Salir" de manera absoluta */
+}
+
+/* Contenedor para el botón "Salir" */
+.logout-container {
+    position: absolute;
+    top: 10px; /* Espacio desde el top */
+    right: 20px; /* Espacio desde el borde derecho */
+    z-index: 10; /* Asegura que el botón esté encima de otros elementos */
+}
+
+/* Estilo del botón "Salir" */
+.logout-btn {
+    padding: 8px 15px;
+    background-color: #e0e0e0; /* Coincide con el color de los demás botones */
+    color: #333; /* Texto en color oscuro */
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #d5d5d5; /* Coincide con el hover de los demás botones */
+}
+
+/* Panel lateral */
+.sidebar {
+    background-color: #cccccc;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* ← Esto hace que se extienda todo el alto de la pantalla */
+    position: sticky; /* Se queda fija si haces scroll */
+    top: 0;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.logo h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Estilos de los botones del sidebar */
+.nav-buttons button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-buttons button:hover {
+    background-color: #d5d5d5;
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.content-image img {
+    max-width: 93%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.imagen-inicio {
+    width: 100%;
+    max-width: 400px; /* Tamaño máximo en pantallas grandes */
+    max-height: 80vh; /* No ocupar más del 80% de la pantalla */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

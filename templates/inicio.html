@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='inicio.css') }}"> <!-- Estilos específicos del inicio -->
+</head>
+<body>
+    <div class="container">
+         <!-- Botón "Salir" en la parte superior derecha del contenedor -->
+         <div class="logout-container">
+            <form method="POST" action="{{ url_for('logout') }}">
+                <button type="submit" class="back-button">🔒 Salir</button>
+            </form>
+        </div>
+        <!-- Panel lateral -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Cleanstock Logo"> <!-- Imagen del logo -->
+                <h2>Clean Stock</h2>
+            </div>
+            <nav class="nav-buttons">
+                <a href="{{ url_for('stock') }}">
+                    <button type="button">Stock</button>
+                </a>
+                <a href="{{ url_for('lista_conteo') }}">
+                    <button type="button">Lista de conteo</button>
+                </a>
+                <a href="{{ url_for('fuera_base') }}">
+                    <button type="button">Fuera de Base</button>
+                </a>
+                <a href="{{ url_for('cargue_db') }}">
+                    <button type="button">Cargue DB</button>
+                </a>
+                <a href="{{ url_for('administracion_usuarios') }}">
+                    <button type="button">Administración Usuarios</button>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <div class="content-image">
+                <img src="{{ url_for('static', filename='inicio.png') }}" alt="Imagen de inicio" class="imagen-inicio">
+            </div>
+        </main>        
+    </div>
+</body>
+</html>
