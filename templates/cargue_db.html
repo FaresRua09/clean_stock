@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargue DB - Cleanstock</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='administracion_usuarios.css') }}"> <!-- Reutilizar estilos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='administracion_usuarios.css') }}">
 </head>
 <body>
     <div class="container">
@@ -15,23 +15,13 @@
                     <img src="{{ url_for('static', filename='logo.png') }}" alt="Cleanstock Logo" style="cursor: pointer;">
                 </a>
                 <h2>Clean Stock</h2>
-            </div>            
+            </div>
             <nav class="nav-buttons">
-                <a href="{{ url_for('stock') }}">
-                    <button type="button">Stock</button>
-                </a>
-                <a href="{{ url_for('lista_conteo') }}">
-                    <button type="button">Lista de conteo</button>
-                </a>
-                <a href="{{ url_for('fuera_base') }}">
-                    <button type="button">Fuera de Base</button>
-                </a>
-                <a href="{{ url_for('cargue_db') }}">
-                    <button type="button">Cargue DB</button>
-                </a>
-                <a href="{{ url_for('administracion_usuarios') }}">
-                    <button type="button">Administración Usuarios</button>
-                </a>
+                <a href="{{ url_for('stock') }}"><button type="button">Stock</button></a>
+                <a href="{{ url_for('lista_conteo') }}"><button type="button">Lista de conteo</button></a>
+                <a href="{{ url_for('fuera_base') }}"><button type="button">Fuera de Base</button></a>
+                <a href="{{ url_for('cargue_db') }}"><button type="button">Cargue DB</button></a>
+                <a href="{{ url_for('administracion_usuarios') }}"><button type="button">Administración Usuarios</button></a>
             </nav>
         </aside>
 
@@ -45,9 +35,31 @@
                 {% else %}
                     <button onclick="window.history.back()" class="back-button">⬅️ Atrás</button>
                 {% endif %}
-            </div>           
-            <h1 class="page-title">Cargue DB</h1>
-            <!-- Aquí puedes agregar el contenido específico para cargar la base de datos -->
+            </div>
+
+            <h1 class="page-title">Cargar archivo CSV</h1>
+
+            <p class="description">
+                Puedes subir un archivo `.csv` con las siguientes columnas: 
+                <strong>referencia, descripcion, marca, nombre_bodega, cantidad_stock, precio, umb</strong>.
+                Asegúrate de que los encabezados estén escritos correctamente.
+                Si no sabes cómo estructurarlo, puedes descargar una <a href="{{ url_for('static', filename='plantilla_productos.csv') }}" class="template-link" download>plantilla de ejemplo aquí</a>
+            </p>
+
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <ul class="flashes">
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('cargar_csv') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="archivo_csv" accept=".csv" required>
+                <button type="submit" class="add-user-button">Subir CSV</button>
+            </form>
         </main>
     </div>
 </body>

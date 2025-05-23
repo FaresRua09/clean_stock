@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session, flash
+from io import TextIOWrapper
 import os
 import requests
 from functools import wraps
@@ -173,6 +174,45 @@ def fuera_base():
 @app.route('/cargue_db')
 def cargue_db():
     return render_template('cargue_db.html')
+
+@app.route('/cargar_csv', methods=['POST'])
+@requiere_rol('admin')
+def cargar_csv():
+    archivo = request.files.get('archivo_csv')
+
+    if not archivo or not archivo.filename.endswith('.csv'):
+        flash('❌ Debes subir un archivo CSV válido.')
+        return redirect(url_for('cargue_db'))
+
+    archivo_csv = TextIOWrapper(archivo, encoding='utf-8')
+    lector = csv.DictReader(archivo_csv)
+
+    registros = []
+    for fila in lector:
+        registros.append({
+            "referencia": fila.get("referencia", ""),
+            "descripcion": fila.get("descripcion", ""),
+            "marca": fila.get("marca", ""),
+            "nombre_bodega": fila.get("nombre_bodega", ""),
+            "cantidad_stock": int(fila.get("cantidad_stock", 0)),
+            "precio": float(fila.get("precio", 0.0)),
+            "umb": fila.get("umb", "")
+        })
+
+    if registros:
+        response = requests.post(
+            f"{SUPABASE_URL}/rest/v1/productos",  # Asegúrate que esta tabla exista
+            headers=SUPABASE_HEADERS,
+            json=registros
+        )
+        if response.status_code in (200, 201):
+            flash(f'✅ Se cargaron {len(registros)} productos correctamente.')
+        else:
+            flash('❌ Error al cargar los datos en Supabase.')
+    else:
+        flash('⚠️ El archivo estaba vacío o mal formateado.')
+
+    return redirect(url_for('cargue_db'))
 
 @app.route('/administracion_usuarios', methods=['GET'])
 @requiere_rol('admin')

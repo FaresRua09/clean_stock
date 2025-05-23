@@ -1,4 +1,4 @@
-/* Estilos generales */
+/* === RESET GENERAL === */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,23 +17,7 @@ body {
     width: 100%;
 }
 
-/* Estilo para el título de la página */
-.page-title {
-    font-size: 2.5rem;
-    color: #000000;
-    text-align: center;
-    font-weight: bold;
-    padding: 15px;  /* Espacio dentro del recuadro */
-    background-color: #CDD4DC;  /* Gris claro */
-    border: 2px solid #191919;  /* Recuadro con borde gris */
-    border-radius: 8px;  /* Bordes redondeados (opcional) */
-    margin: 20px auto;  /* Espaciado superior/inferior y centrado horizontal */
-    width: 80%;  /* Ajustar el ancho del recuadro */
-    max-width: 500px;  /* Establecer un ancho máximo, si es necesario */
-    display: block;
-}
-
-/* Estilo del panel lateral */
+/* === SIDEBAR === */
 .sidebar {
     background-color: #cccccc;
     width: 250px;
@@ -77,101 +61,31 @@ body {
     background-color: #d5d5d5;
 }
 
-/* Estilo del contenido principal */
+/* === CONTENIDO PRINCIPAL === */
 .main-content {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: 20px;
     background-color: #fff;
-    gap: 20px; /* Espacio entre elementos */
+    gap: 20px;
 }
 
-.back-button {
-    align-self: flex-start;
-    background-color: #e0e0e0;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #333;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-/*
-.back-button:hover {
-    background-color: #d5d5d5;
-}/*
-
-/* Estilo para la sección de descripción */
-.upload-section {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.5;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
-}
-
-.upload-section a.template-link {
-    color: #007BFF;
-    text-decoration: none;
+.page-title {
+    font-size: 2rem;
+    color: #000;
+    text-align: center;
     font-weight: bold;
-}
-
-.upload-section a.template-link:hover {
-    text-decoration: underline;
-}
-
-/* Contenedor del input y botón de búsqueda */
-.custom-file-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
+    padding: 15px;
+    background-color: #CDD4DC;
+    border: 2px solid #191919;
+    border-radius: 8px;
+    margin: 20px auto;
+    width: 80%;
     max-width: 500px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #f9f9f9;
 }
 
-/* Input oculto */
-.file-input {
-    display: none;
-}
-
-/* Placeholder para mostrar el texto */
-.file-placeholder {
-    flex: 1;
-    padding: 10px;
-    font-size: 1rem;
-    color: #666;
-    background-color: #fff;
-}
-
-/* Botón de búsqueda */
-.browse-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #333;
-    background-color: #d5d5d5;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-left: 1px solid #ccc; /* Separador entre el campo y el botón */
-}
-    
-.browse-button:hover {
-    background-color: #007BFF;
-}
-
-#file-upload {
-    display: none; /* Ocultar el input de archivo */
-}
-
+/* === BOTÓN VOLVER / SALIR === */
 .back-container {
     display: flex;
     justify-content: flex-end;
@@ -191,4 +105,75 @@ body {
 
 .back-button:hover {
     background-color: #0056b3;
+}
+
+/* === SECCIÓN DE DESCRIPCIÓN PARA CARGA CSV === */
+.description {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+/* === MENSAJES FLASH === */
+.flashes {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.flashes li {
+    background-color: #e0ffe0;
+    border: 1px solid #3c763d;
+    color: #2c662d;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* === FORMULARIO CARGA CSV === */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+.add-user-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-user-button:hover {
+    background-color: #0056b3;
+}
+
+.template-link {
+    color: #007BFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.template-link:hover {
+    text-decoration: underline;
 }
